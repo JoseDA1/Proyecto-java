@@ -8,7 +8,7 @@ public class Main
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+        final int MAXLIMITIDENTIFICATION = 999999;
         
         //Declara la cantidad de estudiantes y la digita
         int numStudents;
@@ -34,10 +34,10 @@ public class Main
             System.out.print("Ingrese el nombre del estudiante " + (i+1) + ": ");
             names[i] = scanner.nextLine();  //llenar array de nombres
 
-            
-            System.out.print("Ingrese la identificación del estudiante: ");
-            identification[i] = scanner.nextInt(); //llenar array de codigos
-            
+            do{
+                System.out.print("Ingrese la identificación del estudiante: ");
+                identification[i] = scanner.nextInt(); //llenar array de codigos
+            }while(identification[i] > MAXLIMITIDENTIFICATION);
             // Consumir la nueva línea sobrante después de nextInt
             scanner.nextLine();
 
