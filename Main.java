@@ -1,13 +1,14 @@
 
-//Name Code
+//Michell Juliana Pérez Gómez - 192354
 //
 import java.util.Scanner;
+import java.util.Locale;
 public class Main
 {
     
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
         //Contantes
         final double APPROVED = 3.0; //Aprobacion
         final int SUBJECT = 3; // Asignaturas
@@ -59,14 +60,13 @@ public class Main
                     }
                     
                 } while (notes[i][j]<0.0 || notes[i][j]>5.0);
-
+                
             }
             // Consumir la nueva línea sobrante después de la última entrada de nota
             scanner.nextLine();
-
         }
-        
         //Calcular y hacer reporte
+        System.out.println();
         System.out.println("REPORTE FINAL:");
         
         for (i = 0; i < numStudents; i++) {
@@ -75,9 +75,9 @@ public class Main
             //If para saber si aprobó o no
                            //Condicion            //true       //false                     
             String state = average >= APPROVED ? "Aprobado" : "Reprobado";
-            System.out.println(names[i] + "(ID: " + identification[i] + ") - " + "Promedio: " + average + " - " + state);
+            System.out.println(names[i] + " (ID: " + identification[i] + ") - " + "Promedio: " + average + " - " + state);
         }
-
+        scanner.close();
     }
     // Método para calcular el promedio de las notas
     public static double calculateAverage(double[] notes) {
