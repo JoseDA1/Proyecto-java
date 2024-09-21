@@ -55,11 +55,11 @@ public class Main
             scanner.nextLine();
 
             for (int j = 0; j < SUBJECT; j++) { //for anidado para llenar la matriz de notas
+                System.out.print("Ingrese la nota " + subject[j] + " de " + names[i] + " entre 0.0 y 5.0: ");
                 do { //uso de do while para verificar que la nota ingresada esté entre 0.0 y 5.0
-                    System.out.print("Ingrese la nota " + subject[j] + " de " + names[i] + " entre 0,0 y 5,0: ");
                     notes[i][j] = scanner.nextDouble();
                     if (notes[i][j]<0.0 || notes[i][j]>5.0 ) {
-                        System.out.println("Nota invalida, debe ingresar una nota entre 0,0 y 5,0");
+                        System.out.println("Nota invalida, debe ingresar una nota entre 0.0 y 5.0");
                     }
                     
                 } while (notes[i][j]<0.0 || notes[i][j]>5.0);
@@ -85,12 +85,16 @@ public class Main
     // Método para calcular el promedio de las notas
     public static double calculateAverage(double[] notes) {
         double sum = 0; //se crea un acumulador
-        // For donde almacenará los valores de la array notes
+        double resultAverage = 0;
+        // For each donde almacenará los valores de la array notes
         for (double note : notes) {
             sum += note;
         }
-        // Devuelve el promedio
-        return sum / (double)notes.length; //Se hace casting para obetener más precisión en los datos
+        // variable que almacene el promedio
+        //Se redondea el promedio a dos cifras
+        resultAverage = Math.round((sum /(double)notes.length)*100.0) / 100.0; //Se hace casting para obetener más precisión en los datos
+        // Devuelve el resultado
+        return resultAverage; 
     }
     
 }
