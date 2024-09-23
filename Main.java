@@ -9,6 +9,8 @@ public class Main
         //Contantes
         final double APPROVED = 3.0; //Aprobacion
         final int SUBJECT = 3; // Asignaturas
+        final double MINNOTE = 0;
+        final double MAXNOTE = 5;
         // Declarando el limite para el codigo del estudiante
         final int MAXLIMITIDENTIFICATION = 999999;
         final int MINLIMITIDENTIFICATION_AND_STUDENTS = 0;
@@ -58,11 +60,11 @@ public class Main
                 System.out.print("Ingrese la nota " + subject[j] + " de " + names[i] + " entre 0.0 y 5.0: ");
                 do { //uso de do while para verificar que la nota ingresada esté entre 0.0 y 5.0
                     notes[i][j] = scanner.nextDouble();
-                    if (notes[i][j]<0.0 || notes[i][j]>5.0 ) {
+                    if (notes[i][j]<MINNOTE || notes[i][j]>MAXNOTE ) {
                         System.out.println("Nota invalida, debe ingresar una nota entre 0.0 y 5.0");
                     }
                     
-                } while (notes[i][j]<0.0 || notes[i][j]>5.0);
+                } while (notes[i][j]<MINNOTE || notes[i][j]>MAXNOTE);
                 
             }
             // Consumir la nueva línea sobrante después de la última entrada de nota
@@ -92,7 +94,7 @@ public class Main
         }
         // variable que almacene el promedio
         //Se redondea el promedio a dos cifras
-        resultAverage = Math.round((sum /(double)notes.length)*100.0) / 100.0; //Se hace casting para obetener más precisión en los datos
+        resultAverage = Math.round((sum /(double)notes.length)*100.0) / 100.0; //Se hace casting para obtener más precisión en los datos
         // Devuelve el resultado
         return resultAverage; 
     }
