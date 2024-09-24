@@ -80,7 +80,7 @@ public class Main
             //If para saber si aprobó o no
                            //Condicion            //true       //false                     
             String state = average >= APPROVED ? "Aprobado" : "Reprobado";
-            System.out.println(names[i] + " (ID: " + identification[i] + ") - " + "Promedio: " + average + " - " + state);
+            System.out.println(names[i] + " id: " + identification[i] + " - " + "Promedio: " + average + " - " + state);
         }
         scanner.close();
     }
